@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+       
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{ applicant.first_name }} {{ applicant.last_name }}</h5>
+            <p class="text-muted mb-1">{{ applicant.service }}</p>
+           
+            <div  class="d-flex justify-content-center mb-3" >
+                {% if applicant.is_active %}
+                   
+
+                {% else %}
+                     <a href="{% url 'conform' applicant.id %}" style="margin: 0 8px;" class="btn btn-primary" type="button">Подтвердить</a>
+                {% endif %}
+                 <a href="{% url 'cancel' applicant.id %}" type="button" class="btn btn-danger">Отказ</a> 
+               <!--  {% if appicant.is_active == False %}
+                <p>Sa</p>
+                   
+                }
+                }
+
+                {% else %}
+
+                    <a href="" style="margin: 0 8px;" class="btn btn-primary" type="button">Подтвердить</a>
+                {% endif %}
+                <a type="button" class="btn btn-danger">Отказ</a> -->
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Фамилия Имя: </p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ applicant.first_name }} {{ applicant.last_name }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Район: </p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ applicant.region }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Специальность:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ applicant.skills }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">График работы: </p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ applicant.schedule}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Опыт:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ applicant.experence}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Цена: </p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ applicant.price }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                <p class="mb-0">Номер телефона: </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="text-muted mb-0">{{ applicant.phone_number }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+</section>
+   
+{% endblock %}
